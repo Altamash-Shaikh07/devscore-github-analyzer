@@ -1,0 +1,13 @@
+.env.example
+.env
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

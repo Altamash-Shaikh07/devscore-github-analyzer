@@ -6,7 +6,7 @@ const githubClient = axios.create({
   headers: {
     Accept: 'application/vnd.github.v3+json',
     ...(config.githubToken && {
-      Authorization: `Bearer ${config.githubToken}`,
+      Authorization: `token ${config.githubToken}`,
     }),
   },
   timeout: 15000,

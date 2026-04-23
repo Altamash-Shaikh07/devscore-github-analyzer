@@ -30,6 +30,14 @@ async function analyzeUser(req, res) {
       data: result.toJSON(),
     });
   } catch (err) {
+    if (err.response?.status === 401) {
+      console.error('[AnalyzeUser Auth Error]', err.response.data?.message || err.message);
+      return res.status(401).json({
+        success: false,
+        error: 'GitHub rejected the configured token. Update GITHUB_TOKEN in backend/.env, or remove it to use unauthenticated public requests.',
+      });
+    }
+
     if (err.response?.status === 404) {
       return res.status(404).json({
         success: false,
